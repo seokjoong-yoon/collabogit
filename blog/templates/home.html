@@ -1,0 +1,7 @@
+글 목록<br><br>
+
+{% for post in posts %}
+    {{post.title}}<br>
+    {{post.pub_date}}<br>
+    {{post.body|linebreaks}}<br>
+{% endfor %}
