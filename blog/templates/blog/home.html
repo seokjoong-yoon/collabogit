@@ -1,3 +1,8 @@
+{% extends 'blog/base.html' %}
+
+{% load static %}
+{% block content %}
+
 글 목록<br><br>
 
 {% for post in posts %}
@@ -5,5 +10,3 @@
     {{post.pub_date}}<br>
     {{post.body|linebreaks}}<br>
 {% endfor %}
-
-<a href="{% url 'new' %}">글쓰러가기</a>
