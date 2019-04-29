@@ -6,7 +6,16 @@
 글 목록<br><br>
 
 {% for post in posts %}
-    {{post.title}}<br>
+    {% if post.image %}
+        <img src="{{post.image.url}}" height=200>
+    {% endif %}
+    <br>
+    <a href="{% url 'detail' index=post.pk %}">{{post.title}}</a><br>
     {{post.pub_date}}<br>
     {{post.body|linebreaks}}<br>
+    <br><br>
 {% endfor %}
+
+<br><br>
+<a href="{% url 'new' %}">글쓰러가기</a>
+{% endblock %}

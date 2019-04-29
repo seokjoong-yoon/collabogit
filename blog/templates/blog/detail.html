@@ -1,0 +1,13 @@
+<div class="post">
+    {% if post.pub_date %}
+        {{post.pub_date}}
+    {% endif %}
+    <h1>{{post.title}}</h1>
+    <p>{{post.body|linebreaks}}</p>
+    {% if post.image %}
+        <img src="{{post.image.url}}" height=200>
+    {% endif %}
+</div>
+
+<a href="{% url 'edit' index=post.pk %}">글 수정하기</a>
+<a href="{% url 'delete' index=post.pk %}">삭제하기</a>

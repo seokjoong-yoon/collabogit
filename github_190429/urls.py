@@ -17,10 +17,17 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from blog import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.home, name='home'),
     url(r'^new/', views.new, name='new'),
+    url(r'^post/(?P<index>\d+)/$', views.detail, name='detail'),
+    url(r'^post/(?P<index>\d+)/edit/$', views.edit, name='edit'),
+    url(r'^post/(?P<index>\d+)/delete/$', views.delete, name='delete'),
     
 ]
+
+urlpatterns+=static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
