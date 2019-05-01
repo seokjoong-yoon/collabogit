@@ -3,19 +3,59 @@
 {% load static %}
 {% block content %}
 
-글 목록<br><br>
-
-{% for post in posts %}
-    {% if post.image %}
-        <img src="{{post.image.url}}" height=200>
-    {% endif %}
+<section class='clubs'>
+      <header class='club_header'>
+        <h2 class='club_title'>
+           <div class="alert alert-success" role="alert">
+                <span class='club_category'>Sogang-LikeLion</span>
+            멋사 중고나라
+            </div>
+           
+        </h2><br>
+    </header>
+    <div class= 'add'>
+    <a href="{% url 'new'%}" class="btn btn-warning text-white" >등록하기</a>
     <br>
-    <a href="{% url 'detail' index=post.pk %}">{{post.title}}</a><br>
-    {{post.pub_date}}<br>
-    {{post.body|linebreaks}}<br>
-    <br><br>
-{% endfor %}
+    </div>
+  
+</div>
+    <div class='container'>
+        <div class='row'>
+            {% for post in posts %}
+            <div class="shadow-lg p-3 mb-5 bg-white rounded">
+            <div class='col-lg-4 col-sm-12'>
+                <div class="card" style="width: 18rem;"> 
+                    <div class="card-body">
+                        <a href="{% url 'detail' index=post.pk %}" class="text-info">{{post.title}}</a><br>
+                        <br>
+                        {% if post.image %}
+                        <img src="{{post.image.url}}" height=200 width=250>
+                        {% endif %}
+                        <br><br>
+                        <p class="cont">{{post.body|linebreaks}}</p>
+                        <br><br>
+                        <p class="date">{{post.pub_date}}</p>
+                    </div>
+                </div>
+            </div>
+            </div>
+            {% endfor %}
 
+        </div>
+         <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+      <h6>page &nbsp;&nbsp;  </h6>
+      <div class="btn-group mr-2" role="group" aria-label="First group">
+        <button type="button" class="btn btn-light">1</button>
+        <button type="button" class="btn btn-light">2</button>
+        <button type="button" class="btn btn-light">3</button>
+        <button type="button" class="btn btn-light">4</button>
+        <button type="button" class="btn btn-light">5</button>
+    
+      </div>
+
+    </div>
+    </div>
+</section>
 <br><br>
 <a href="{% url 'new' %}">글쓰러가기</a>
 {% endblock %}

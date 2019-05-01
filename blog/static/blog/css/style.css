@@ -1,0 +1,37 @@
+.clubs{
+    padding: 20px 0;
+    text-align: center;
+}
+.club_title{
+    font-size:2.5rem;
+    line-height: 1.5;
+}
+.club_category{
+    display: block;
+    font-size:1rem;
+    font-weight:700;
+    line-height:1.5;
+}
+.card{
+    text-align: left;
+}
+.add{
+    text-align:right;
+}
+.text-info{
+    font-weight: bold;
+    
+}
+.date{
+    
+    font-size: x-small;
+    text-align: right;
+    
+}
+.cont{
+    color: blue;
+    
+}
+.btn-group mr-2{
+    padding-left : 10px;
+text-align : center}

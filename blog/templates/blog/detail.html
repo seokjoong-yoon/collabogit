@@ -1,13 +1,25 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block content %}
+
+
 <div class="post">
-    {% if post.pub_date %}
-        {{post.pub_date}}
-    {% endif %}
-    <h1>{{post.title}}</h1>
-    <p>{{post.body|linebreaks}}</p>
+
+    <h5>[제목] {{post.title}}</h5>
+    <br><br>
     {% if post.image %}
         <img src="{{post.image.url}}" height=200>
     {% endif %}
+    <br>
+    <p>{{post.body|linebreaks}}</p>
+    <br><br>
+    {% if post.pub_date %}
+        <h6>작성일 : {{post.pub_date}}</h6>
+    {% endif %}
 </div>
+<br><br>
+<a href="{% url 'edit' index=post.pk %}">수정</a>
+<a href="{% url 'delete' index=post.pk %}">  삭제</a>
 
-<a href="{% url 'edit' index=post.pk %}">글 수정하기</a>
-<a href="{% url 'delete' index=post.pk %}">삭제하기</a>
+{% endblock %}
